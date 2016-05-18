@@ -1,0 +1,21 @@
+{
+  "name": "UsefulMarionetteViewBehaviors",
+  "homepage": "https://github.com/feeekkk/UsefulMarionetteViewBehaviors",
+  "authors": [
+    "Feek <fpm5022@gmail.com>"
+  ],
+  "description": "A collection of a few marionette view behaviors that I find myself using often",
+  "main": "",
+  "keywords": [
+    "marionette",
+    "behaviors"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
