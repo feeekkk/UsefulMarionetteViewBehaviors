@@ -1,6 +1,9 @@
 # UsefulMarionetteViewBehaviors
 A collection of a few marionette view behaviors that I find myself using often
 
+##Installation
+`bower install useful-marionette-view-behaviors --save`
+
 ##CollectionLoading
 A Marionette view behavior that will display a loading gif in place of an empty view while a collection is being fetched. Once the collection has finished being fetched,
 the itemviews / empty view will be shown depending on the outcome of the request.
