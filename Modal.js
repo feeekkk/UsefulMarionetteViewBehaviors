@@ -1,44 +1,52 @@
 /**
- * Created by Feek on 5/18/16.
- */
-/**
  * Created by Feek on 3/15/16.
  */
 define([
-	'marionette',
-	'../util/Vent'
+	'marionette'
 ], function (
-	Mn,
-	Vent
+	Mn
 ) {
 	var Modal = Mn.Behavior.extend({
+
 		/**
 		 * This behavior handles the behavior for a modal
 		 *
-		 * VIEW REQUIRES:
-		 * - template with .close (close button)
-		 * - template with .background (background div covering page)
-		 * - Vent with rootview listening to hide this
+		 * Ideally this would be refactored to alter the render method to include the background and close elements,
+		 * but for now they are living inside the rootview within the modal region
 		 *
 		 * @param options
 		 */
 		initialize: function(options) {
+			this.modalRegionSelector = options.modalRegionSelector || '.modal-region';
+			_.bindAll(this, 'close');
 		},
 
 		events: {
 			'click @ui.close' : 'close',
-			'click @ui.cancel' : 'close',
-			'click @ui.background' : 'close'
+			'click @ui.cancel' : 'close'
 		},
 
 		ui: {
 			close : '.close',
-			background: '.background',
 			cancel: '.cancel'
 		},
 
+		onShow: function() {
+			this.$modalRegion = $(this.modalRegionSelector);
+			this.$modalRegion.on('click', '.background', this.close); // bind to click on background outside of this views el
+			this.$modalRegion.on('click', '.close', this.close); // bind to click on close outside of this views el
+			this.$modalRegion.show(); // display: block
+		},
+
 		close: function() {
-			Vent.trigger('modal:close');
+			this.$modalRegion.hide(); // display: none
+			this.view.destroy();
+		},
+
+		onBeforeDestroy: function() {
+			// clean up events bound outside of this views el
+			this.$modalRegion.off('click', '.background', this.close);
+			this.$modalRegion.off('click', '.close', this.close);
 		}
 	});
 
