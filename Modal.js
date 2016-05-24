@@ -32,6 +32,10 @@ define([
 		},
 
 		onShow: function() {
+			$('body').css({
+				'overflow' : 'hidden',
+				'height' : '100vh'
+			});
 			this.$modalRegion = $(this.modalRegionSelector);
 			this.$modalRegion.on('click', '.background', this.close); // bind to click on background outside of this views el
 			this.$modalRegion.on('click', '.close', this.close); // bind to click on close outside of this views el
@@ -41,6 +45,10 @@ define([
 		close: function() {
 			this.$modalRegion.hide(); // display: none
 			this.view.destroy();
+			$('body').css({
+				'overflow' : 'initial',
+				'height' : 'initial'
+			});
 		},
 
 		onBeforeDestroy: function() {
