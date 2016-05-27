@@ -6,10 +6,12 @@
 
 define([
 	'backbone',
-	'marionette'
+	'marionette',
+	'nprogress'
 ], function(
 	Backbone,
-	Marionette
+	Marionette,
+	NProgress
 ) {
 	var collectionLoadIndicator = Marionette.Behavior.extend({
 		ui: {
@@ -27,6 +29,26 @@ define([
 			this.listenTo(collection, "error", this.hideLoadingElement);
 		},
 
+		showLoadingElement: function() {
+			NProgress.start();
+		},
+
+		hideLoadingElement: function(a, b) {
+			// since we are subscribing to all error events on the collection, we only want to update the dom when
+			// status is 200 (fetch was successful, but may be empty). We can ignore everything else I think
+			if (b && b.status && b.status != 200) {
+				console.error('An error happened that was not an empty backbone collection: ' + JSON.stringify(b, null, 4));
+				return;
+			}
+
+			NProgress.done();
+		},
+
+		onDelete: function() {
+			NProgress.remove();
+		}
+		/*
+		If you dont want to use NProgress, feel free to use something like this
 		showLoadingElement: function () {
 			this.view.startBuffering();
 			this.view.destroyEmptyView();
@@ -52,6 +74,7 @@ define([
 
 			this.view.checkEmpty();
 		}
+		*/
 	});
 
 	return collectionLoadIndicator
