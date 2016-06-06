@@ -3,9 +3,11 @@
  */
 
 define([
-	'marionette'
+	'marionette',
+	'nprogress'
 ], function (
-	Mn
+	Mn,
+	NProgress
 ) {
 	var ModelSaveAnimation = Mn.Behavior.extend({
 
@@ -18,6 +20,19 @@ define([
 		},
 
 		showLoadingAnimation: function() {
+			NProgress.start();
+		},
+
+		hideLoadingAnimation: function() {
+			NProgress.done();
+		},
+
+		onDelete: function() {
+			NProgress.remove();
+		},
+
+		/*
+		showLoadingAnimation: function() {
 			var html =
 				'<div class="loading text-center"\>' +
 					'\<img src="/img/loading.gif"/>' +
@@ -29,6 +44,7 @@ define([
 		hideLoadingAnimation: function() {
 			this.$el.find('.loading').fadeOut();
 		}
+		*/
 	});
 
 	return ModelSaveAnimation
