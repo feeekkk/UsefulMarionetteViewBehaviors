@@ -44,7 +44,7 @@ define([
 		onSetModelSaveCallbacks: function(successCallback, failCallback) {
 			this.successCallback = successCallback.bind(this.view);
 
-			if (this.failCallback) {
+			if (failCallback) {
 				this.failCallback = failCallback.bind(this.view);
 			}
 		},
