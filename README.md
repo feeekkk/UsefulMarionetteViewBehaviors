@@ -13,9 +13,9 @@ A Marionette view behavior useful for applying to a view that displays a form to
 ##ModelValidation
 A Marionette view behavior that will listen for a view's model(s) to trigger an invalid event. When this happens, the behavior will display the error / error message in an alert
 
-##ModelSaveAnimation
-A marionette view behavior that listens for the view's model to trigger a request event. When this happens, a loading icon
-is inserted into the view's $el (leaving the css implementation up to you). Once the request has completed, the loading icon is removed.
-
 ##Modal
 This behavior takes care of the common functionality of a modal
+
+##ModelSaveAnimation @deprecated use LoadingIndicator instead.
+A marionette view behavior that listens for the view's model to trigger a request event. When this happens, a loading icon
+is inserted into the view's $el (leaving the css implementation up to you). Once the request has completed, the loading icon is removed.
