@@ -1,5 +1,5 @@
 # UsefulMarionetteViewBehaviors
-A collection of a few marionette view behaviors that I find myself using often. Enjoy and feel free to contribute.
+A collection of a few marionette view behaviors that I find myself using often. They are quite opinionated for my workflow, however feel free to to contribute and make them more abstracted!
 
 ##Installation
 `bower install useful-marionette-view-behaviors --save`
