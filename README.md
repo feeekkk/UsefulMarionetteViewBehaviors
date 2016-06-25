@@ -1,12 +1,11 @@
 # UsefulMarionetteViewBehaviors
-A collection of a few marionette view behaviors that I find myself using often
+A collection of a few marionette view behaviors that I find myself using often. Enjoy and feel free to contribute.
 
 ##Installation
 `bower install useful-marionette-view-behaviors --save`
 
-##CollectionLoading
-A Marionette view behavior that will display a loading gif in place of an empty view while a collection is being fetched. Once the collection has finished being fetched,
-the itemviews / empty view will be shown depending on the outcome of the request.
+##LoadingIndicator
+A Marionette view behavior that will either a) use NProgress or b) display a loading gif when a collection / model is being fetched from the server.
 
 ##ModelFormSave
 A Marionette view behavior useful for applying to a view that displays a form to update a model. It will loop through the views $el and look for specially marked inputs containing data to save to the model. Will also optionally display validation errors in the dom.
