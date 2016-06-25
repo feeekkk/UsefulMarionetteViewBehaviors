@@ -22,7 +22,7 @@ define([
 
 		defaults: {
 			'nprogress' : true
-		}
+		},
 
 		/**
 		 * View needs to call triggerMethod("setListener", model) and pass the backbone object to listen to as the parameter
@@ -60,7 +60,7 @@ define([
 
 		onDelete: function() {
 			NProgress.remove();
-		}
+		},
 
 		_showLoadingElement: function () {
 			this.view.startBuffering();
