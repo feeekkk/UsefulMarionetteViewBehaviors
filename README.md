@@ -16,6 +16,16 @@ A Marionette view behavior that will listen for a view's model(s) to trigger an 
 ##Modal
 This behavior takes care of the common functionality of a modal
 
-##ModelSaveAnimation @deprecated use LoadingIndicator instead.
+##FoundationOffCanvas
+A marionette behavior for taking care of interacting with a foundation off canvas element.
+Can optionally disable scrolling on the body while the off canvas is open.
+Supports open, close, and toggle of the off canvas.
+
+##StateManager
+A marionette behavior meant for a parent view to keep track of which child view to show. Essentially meant for a multi step process, think along the lines of creating an order on an ecommerce
+website and having different views to show one at a time, such as customer info, address info, credit card info, etc.
+
+##ModelSaveAnimation
+@deprecated use LoadingIndicator instead.
 A marionette view behavior that listens for the view's model to trigger a request event. When this happens, a loading icon
 is inserted into the view's $el (leaving the css implementation up to you). Once the request has completed, the loading icon is removed.
