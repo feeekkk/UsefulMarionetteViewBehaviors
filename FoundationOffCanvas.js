@@ -11,7 +11,7 @@ define([
 		$offCanvasWrap: null,
 
 		defaults: {
-			$offCanvasWrap: null,
+			canvasOptions: null,
 			disableScrollWhileOpen: true
 		},
 
@@ -60,7 +60,7 @@ define([
 
 		_initializeOffCanvas: function() {
 			this._ensureOffCanvasElement();
-			var elem = new Foundation.OffCanvas(this.$offCanvasWrap, this.options);
+			var elem = new Foundation.OffCanvas(this.$offCanvasWrap, this.getOption('canvasOptions'));
 
 			if (this.getOption('disableScrollWhileOpen')) {
 				this.$offCanvasWrap.on('opened.zf.offcanvas', function () {
