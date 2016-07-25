@@ -33,8 +33,10 @@ define([
 			}, this);
 		},
 
-		validationError: function(model, message) {
-			this.showError(message);
+		validationError: function(model, errors) {
+			_.each(errors, function(error) {
+				this.showError(error.message);
+			}, this);
 		},
 
 		showError: function(message) {
@@ -45,13 +47,12 @@ define([
 				this.view.ui.alertArea = this.view.$el.find('.alert-area');
 			}
 
-			this.view.ui.alertArea.append('<div data-alert class="alert-box alert round text-center"> \
+			this.view.ui.alertArea.append('<div data-closable class="small alert callout text-center"> \
 				<div class="message">' + message + '</div> \
-				<a href="#" class="close">&times;</a> \
+				<button class="close-button" aria-label="Dismiss alert" type="button" data-close> \
+					<span aria-hidden="true">&times;</span> \
+				</button> \
 			</div>');
-
-			// reflow foundation so that we can listen to alert close events
-			$(this.view.$el).foundation('alert', 'reflow');
 		}
 	});
 
