@@ -42,6 +42,11 @@ define([
 			this.$modalRegion.show(); // display: block
 		},
 
+		// allow view to call close
+		onCloseModal: function() {
+			this.close();
+		},
+
 		close: function() {
 			this.$modalRegion.hide(); // display: none
 			this.view.destroy();
