@@ -41,16 +41,14 @@ define([
 		 * @param bool cleanup, whether or not to empty the off canvas region
 		 */
 		onCloseOffCanvas: function(cleanup) {
-			var view = this.view;
-
 			this._ensureOffCanvasElement();
 
 			this.$offCanvasWrap.foundation('close', function() {
 				if (cleanup) {
-					view.getRegion('offCanvas').empty();
+					this.view.getRegion('offCanvas').empty();
 				}
-				view.trigger('offcanvas:closed');
-			});
+				this.view.trigger('offcanvas:closed');
+			}.bind(this));
 		},
 
 		onToggleOffCanvas: function(evt) {
