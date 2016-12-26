@@ -3,9 +3,11 @@
  */
 define([
 	'marionette',
+	'jquery',
 	'foundationOffCanvas'
 ], function (
-	Mn
+	Mn,
+	$
 ) {
 	var FoundationOffCanvas = Mn.Behavior.extend({
 		$offCanvasWrap: null,
