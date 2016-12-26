@@ -50,6 +50,7 @@ define([
 				if (cleanup) {
 					view.getRegion('offCanvas').empty();
 				}
+				view.trigger('offcanvas:closed');
 			});
 		},
 
@@ -75,7 +76,9 @@ define([
 						'overflow': 'initial',
 						'height': 'initial'
 					});
-				})
+
+					this.view.trigger('offcanvas:closed');
+				}.bind(this));
 			}
 		},
 
