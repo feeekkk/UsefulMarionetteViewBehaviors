@@ -16,13 +16,12 @@ define([
 		},
 
 		/**
-		 *
 		 * @param options
 		 */
 		initialize: function(options) {
-			this.view.on('openOffCanvas', this.onOpenOffCanvas.bind(this));
-			this.view.on('closeOffCanvas', this.onCloseOffCanvas.bind(this));
-			this.view.on('toggleOffCanvas', this.onToggleOffCanvas.bind(this));
+			this.listenTo(this.view, 'openOffCanvas', this.onOpenOffCanvas);
+			this.listenTo(this.view, 'closeOffCanvas', this.onCloseOffCanvas);
+			this.listenTo(this.view, 'toggleOffCanvas', this.onToggleOffCanvas);
 		},
 
 		onRender: function() {
